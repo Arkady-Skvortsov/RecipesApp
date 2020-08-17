@@ -1,32 +1,43 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+     <Header />
+     <!-- :prod="newObj" тут уже не понадобится привязка, у нас есть Vuex-->
+     
+     <keep-alive>  
+       <router-view />
+     </keep-alive>
   </div>
 </template>
+<script>
+  import Header from '@/components/Header'
 
+  export default {
+    components: {Header}
+  };
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  @import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap'); /* Seaweed Script */
+  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap'); /* Fjalla One */
+  @import url('https://fonts.googleapis.com/css2?family=Flavors&display=swap'); /* Flavors */
+  @import url('https://fonts.googleapis.com/css2?family=Ruluko&display=swap'); /* Ruluko */
+  @import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@300&display=swap'); /* Flamenko */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /* Roboto */
+
+
+  ::-webkit-scrollbar {
+  width: 8px;
 }
 
-#nav {
-  padding: 30px;
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+::-webkit-scrollbar-thumb {
+  background: #888; 
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+} /* Для scrollbar */
+
 </style>
